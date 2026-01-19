@@ -1,25 +1,63 @@
 # Deployment Guide
 
-## Quick Start - Push to GitHub
+## ✅ Status
 
-### Step 1: Create a GitHub Repository
-
-1. Go to [GitHub](https://github.com/new)
-2. Create a new repository (name it `maktabi-workspace-hub` or your preferred name)
-3. **DO NOT** initialize with README, .gitignore, or license (we already have these)
-4. Copy the repository URL (e.g., `https://github.com/yourusername/maktabi-workspace-hub.git`)
-
-### Step 2: Add Remote and Push
-
-Run these commands (replace `<YOUR_REPO_URL>` with your actual repository URL):
-
-```bash
-git remote add origin <YOUR_REPO_URL>
-git branch -M main
-git push -u origin main
-```
+- **Repository**: [https://github.com/MalakMounir/Maktabi.git](https://github.com/MalakMounir/Maktabi.git)
+- **Code Status**: ✅ Pushed to GitHub
+- **Branch**: `main`
+- **Deployment Configs**: ✅ Ready (Vercel & Netlify)
 
 ## Deployment Options
+
+### 🚀 Option 1: Deploy to Vercel (Recommended - Easiest)
+
+**Quick Deploy (Recommended):**
+1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+2. Click **"Add New Project"**
+3. Import repository: **`MalakMounir/Maktabi`**
+4. Vercel will auto-detect all settings from `vercel.json`
+5. Click **"Deploy"** - Your site will be live in ~2 minutes!
+
+**Build Settings (auto-detected):**
+- Framework Preset: Vite
+- Build Command: `npm run build`
+- Output Directory: `dist`
+- Install Command: `npm install`
+
+**Result**: You'll get a live URL like `https://maktabi.vercel.app`
+
+### 🌐 Option 2: Deploy to Netlify
+
+1. Go to [netlify.com](https://netlify.com) and sign in with GitHub
+2. Click **"Add new site"** → **"Import an existing project"**
+3. Select repository: **`MalakMounir/Maktabi`**
+4. Netlify will use the `netlify.toml` configuration automatically
+5. Click **"Deploy site"**
+
+**Build Settings (auto-detected from netlify.toml):**
+- Build command: `npm run build`
+- Publish directory: `dist`
+
+**Result**: You'll get a live URL like `https://maktabi.netlify.app`
+
+### ⚙️ Option 3: Automated Deployment with GitHub Actions
+
+GitHub Actions workflows are already set up! To use them:
+
+**For Vercel:**
+1. Get your Vercel tokens from [vercel.com/account/tokens](https://vercel.com/account/tokens)
+2. Add secrets to GitHub: Repository → Settings → Secrets and variables → Actions
+   - `VERCEL_TOKEN`
+   - `VERCEL_ORG_ID`
+   - `VERCEL_PROJECT_ID`
+3. Push to `main` branch - deployment happens automatically!
+
+**For Netlify:**
+1. Get your Netlify tokens from [app.netlify.com/user/applications](https://app.netlify.com/user/applications)
+2. Add secrets to GitHub: Repository → Settings → Secrets and variables → Actions
+   - `NETLIFY_AUTH_TOKEN`
+   - `NETLIFY_SITE_ID`
+3. Push to `main` branch - deployment happens automatically!
 
 ### Option 1: Deploy to Vercel (Recommended)
 
